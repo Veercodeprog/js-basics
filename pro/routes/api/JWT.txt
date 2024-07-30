@@ -1,0 +1,28 @@
+JWT is a form of user identificationn that is issued 
+after the initial user authentication takes place.when user completes 
+their login process,they are authenticated and then a rest api will issue the 
+client application an access token and refresh token.
+access taken is given a short time before it expires(eg 5 to 15 mins),
+whereas refresh token is given a longer duration (several hours or day or days).
+while no security measures are perfect we do want to consider the risks of 
+cross site scripting(XSS ) and cross site request forgery(CSRF).
+
+Our api will send the access tokens as JSON data.recommended to store access tokens in memory of client ,so that 
+they willl be lost on closing applications.they should not be stored incookie orlocal storage.
+even if we store it with js,hacker can still see it in js.
+
+Our api issue refresh tokenonly in http cookie.this type of cookie is not accessible 
+with js.refresh tokens do need to have expiration  which will then require users to login 
+again.refresh tokens should not have the ability to issue new refresh tokens
+
+Access token process
+1.)issued at authorization
+2.)client uses for api access until expires
+3.)verified with middleware
+4.)new token issued at refresh request
+
+Access token process
+1.)issued at authorization
+2.)client uses to acces new access token
+3.)verified with endpoint and database
+4.)must be allowed to expire or logout

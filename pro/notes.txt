@@ -1,0 +1,9 @@
+mongo db advantage
+
+
+traditiona sql databases build in relational structure.relational table also normalize the data ,means data is not duplicated in the table
+
+however with mongodb  stores data in collections.individual records in the collections are called documents. the documents have  akey value pair and look like json.dupclicating data is permitted where necessary.
+performance
+flexibility
+scalability -large data     
